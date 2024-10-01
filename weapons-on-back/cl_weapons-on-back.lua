@@ -40,6 +40,11 @@ local SETTINGS = {
       -- ["w_sg_sawnoff"] = 2017895192 don't show, maybe too small?
       -- launchers:
       ["w_lr_firework"] = 2138347493
+    },
+    melee_weapon = {
+        ["prop_golf_iron_01"] = true,
+        ["w_me_bat"] = true,
+        ["prop_ld_jerrycan_01"] = true
     }
 }
 
@@ -92,13 +97,7 @@ function AttachWeapon(attachModel,modelHash,boneNumber,x,y,z,xR,yR,zR, isMelee)
 end
 
 function isMeleeWeapon(wep_name)
-    if wep_name == "prop_golf_iron_01" then
-        return true
-    elseif wep_name == "w_me_bat" then
-        return true
-    elseif wep_name == "prop_ld_jerrycan_01" then
-      return true
-    else
-        return false
-    end
+    if SETTINGS.melee_weapon[wep_name] then return true end
+    
+    return false
 end
